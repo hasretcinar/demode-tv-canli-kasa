@@ -36,24 +36,7 @@
 
       <div class="card avatar-select-card">
         <label>Fotoğrafını seç</label>
-        <div class="avatar-picker" id="avatarPicker">
-          <button type="button" class="avatar-choice selected" data-avatar="mehmet" onclick="selectAvatar('mehmet')">
-            <img src="assets/contestants/mehmet_atar.png" alt="Mehmet Atar">
-            <span>Mehmet</span>
-          </button>
-          <button type="button" class="avatar-choice" data-avatar="berke" onclick="selectAvatar('berke')">
-            <img src="assets/contestants/berke_yoldas.png" alt="Berke Yoldaş">
-            <span>Berke</span>
-          </button>
-          <button type="button" class="avatar-choice" data-avatar="yalcin" onclick="selectAvatar('yalcin')">
-            <img src="assets/contestants/yalcin_rohde.png" alt="Yalçın Rohde">
-            <span>Yalçın</span>
-          </button>
-          <button type="button" class="avatar-choice" data-avatar="ronvisli" onclick="selectAvatar('ronvisli')">
-            <img src="assets/contestants/ronvisli.png" alt="Ronvisli">
-            <span>Ronvisli</span>
-          </button>
-        </div>
+        <div class="avatar-picker" id="avatarPicker"></div>
       </div>
 
       <button class="btn primary" onclick="doJoin()">Odaya Katıl</button>
@@ -107,6 +90,7 @@ let activeRef = null;
 let selectedAvatar = "mehmet";
 
 byId("roomInput").value = roomCode;
+renderAvatarPicker();
 
 function me(){
   return state?.players?.[playerId] ? { id:playerId, ...state.players[playerId] } : null;
@@ -186,6 +170,21 @@ function renderPlayerQuestion(){
   updateBetTotal();
 }
 
+
+
+function renderAvatarPicker(){
+  const box = byId("avatarPicker");
+  if(!box) return;
+
+  box.innerHTML = avatarOptions.map((avatar, index)=>`
+    <button type="button" class="avatar-choice ${index === 0 ? "selected" : ""}" data-avatar="${avatar.id}" onclick="selectAvatar('${avatar.id}')">
+      <img src="${avatar.src}" alt="${escapeHtml(avatar.name)}">
+      <span>${escapeHtml(avatar.name)}</span>
+    </button>
+  `).join("");
+
+  selectedAvatar = avatarOptions[0]?.id || "";
+}
 
 function selectAvatar(id){
   selectedAvatar = id;

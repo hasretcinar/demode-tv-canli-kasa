@@ -86,3 +86,11 @@ Aynı GitHub Pages linkinde güncelleme için dosyaları aynı repository’ye t
 - Oyuncu seçtiği fotoğrafla odaya katılır.
 - Canlı sıralama panelinde ismin yanında seçilen fotoğraf görünür.
 - Sol alttaki sabit portre paneli kaldırıldı; artık fotoğraflar oyuncu seçimine bağlıdır.
+
+
+## v10 Güncellemesi
+
+- Avatar fotoğrafları artık game.js içinde base64 olarak gömülüdür; oyuncu, moderatör ve yayın ekranlarında dosya yolu bozulsa bile görünür.
+- Oyuncu ekranındaki fotoğraf seçme alanı JavaScript ile avatarOptions listesinden otomatik oluşturulur.
+- Fotoğraflar daha yakın kırpıldı; yüzler daha belirgin hale getirildi.
+- Canlı sıralama satırları avatar + isim + para düzenine göre tekrar hizalandı.

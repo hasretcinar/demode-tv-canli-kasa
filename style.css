@@ -839,3 +839,70 @@ table{width:100%;border-collapse:collapse}th,td{padding:12px 10px;text-align:lef
     grid-column:3;
   }
 }
+
+
+/* v10 gömülü avatar düzeltmesi */
+.avatar-choice img{
+  width:92px !important;
+  height:92px !important;
+  object-fit:cover !important;
+  object-position:center 34% !important;
+}
+
+.avatar-choice{
+  min-height:142px;
+}
+
+.score-avatar{
+  width:48px !important;
+  height:48px !important;
+  flex:0 0 auto;
+}
+
+.score-avatar-img{
+  object-fit:cover !important;
+  object-position:center 34% !important;
+}
+
+.player-row{
+  grid-template-columns:30px 52px minmax(0,1fr) auto !important;
+}
+
+.player-row > div:nth-child(3){
+  min-width:0;
+}
+
+.player-row > div:nth-child(3) strong{
+  display:block;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.display-page .player-row{
+  grid-template-columns:26px 40px minmax(0,1fr) auto !important;
+}
+
+.display-page .score-avatar{
+  width:38px !important;
+  height:38px !important;
+}
+
+.display-page .player-row strong{
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+@media(max-width:720px){
+  .avatar-choice img{
+    width:82px !important;
+    height:82px !important;
+  }
+  .player-row{
+    grid-template-columns:30px 48px minmax(0,1fr) !important;
+  }
+  .player-row .money{
+    grid-column:3;
+  }
+}
