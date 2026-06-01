@@ -133,6 +133,10 @@ function renderPlayerQuestion(){
           <span class="letter">${letters[i]}</span>
           <strong>${escapeHtml(opt)}</strong>
         </div>
+        <div class="player-money-visual">
+          <div class="money-stack" id="stack${i}"></div>
+          <div class="stack-label" id="stackLabel${i}">0 TL</div>
+        </div>
         <div class="bet-input-row">
           <input id="a${i}" type="number" min="0" step="10000" value="${oldValue}" oninput="updateBetTotal()" ${disabled ? "disabled" : ""}>
           <button class="btn secondary quick mini-all" onclick="putAll(${i})" ${disabled ? "disabled" : ""}>Hepsi</button>
@@ -217,6 +221,29 @@ function setBet(arr){
   updateBetTotal();
 }
 
+
+function updateMoneyStacks(){
+  const p = me();
+  if(!p) return;
+  const cash = Math.max(1, Number(p.cash || 0));
+  const values = getBet();
+  values.forEach((value, i)=>{
+    const stack = byId(`stack${i}`);
+    const label = byId(`stackLabel${i}`);
+    if(!stack || !label) return;
+    label.textContent = money(value);
+    const ratio = Math.max(0, Math.min(1, value / cash));
+    const noteCount = value <= 0 ? 0 : Math.max(1, Math.min(10, Math.ceil(ratio * 10)));
+    stack.innerHTML = "";
+    for(let n=0;n<noteCount;n++){
+      const note = document.createElement("span");
+      note.style.setProperty("--n", n);
+      stack.appendChild(note);
+    }
+    stack.style.setProperty("--stack-height", `${Math.round(10 + ratio * 48)}px`);
+  });
+}
+
 function updateBetTotal(){
   const p = me();
   if(!p) return;
@@ -234,6 +261,7 @@ function updateBetTotal(){
     status.className = "burned";
   }
   byId("lockBtn").disabled = state?.phase !== "betting" || p.locked || p.eliminated || total !== Number(p.cash || 0);
+  updateMoneyStacks();
 }
 
 function putAll(i){

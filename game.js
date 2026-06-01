@@ -81,6 +81,27 @@ function renderTimer(state){
   el.textContent = rem === null ? "-" : `${rem} sn`;
 }
 
+
+function aggregateOptionTotals(state){
+  const totals = [0,0,0,0];
+  if(!state || !state.lastResults || state.phase !== "revealed") return totals;
+  const results = Object.values(state.lastResults.results || {});
+  results.forEach(r => {
+    const allocation = Array.isArray(r.allocation) ? r.allocation : [0,0,0,0];
+    for(let i=0;i<4;i++) totals[i] += Number(allocation[i] || 0);
+  });
+  return totals;
+}
+
+function moneyNotesHtml(amount, mode="stay"){
+  const value = Number(amount || 0);
+  if(value <= 0) return "";
+  const count = Math.max(1, Math.min(9, Math.ceil(value / 250000)));
+  let notes = "";
+  for(let i=0;i<count;i++) notes += `<span style="--i:${i}">₺</span>`;
+  return `<div class="money-notes ${mode}">${notes}</div>`;
+}
+
 function renderQuestion(state, containerId="questionArea"){
   const area = byId(containerId);
   if(!area) return;
@@ -113,9 +134,23 @@ function renderQuestion(state, containerId="questionArea"){
   if(q.audio) media += `<div class="media"><p class="muted">Sesli soru</p><audio controls preload="auto" src="${q.audio}"></audio></div>`;
   if(q.video) media += `<div class="media"><video controls src="${q.video}"></video></div>`;
 
+  const optionTotals = aggregateOptionTotals(state);
   const opts = q.options.map((opt,i)=>{
     const cls = showCorrect ? (i === q.correct ? " correct" : " wrong") : "";
-    return `<div class="option${cls}"><span class="letter">${letters[i]}</span><strong>${opt}</strong></div>`;
+    const amount = optionTotals[i] || 0;
+    const moneyClass = showCorrect && i === q.correct ? "stay" : "fall";
+    const bank = showCorrect ? `
+      <div class="option-bank">
+        <span>${i === q.correct ? "Kalan kasa" : "Yanan kasa"}</span>
+        <strong>${money(amount)}</strong>
+      </div>
+      ${moneyNotesHtml(amount, moneyClass)}
+    ` : "";
+    return `<div class="option option-reveal${cls}">
+      <span class="letter">${letters[i]}</span>
+      <strong>${escapeHtml(opt)}</strong>
+      ${bank}
+    </div>`;
   }).join("");
 
   area.innerHTML = `

@@ -35,3 +35,10 @@ Yayına çıkmadan önce kuralları sıkılaştırmak gerekir.
 - Finalde herkesin ekranında madalyalı liderboard görünür.
 
 Aynı GitHub Pages linkinde güncelleme için dosyaları aynı repository’ye tekrar yükleyip commit etmek yeterlidir.
+
+
+## v3 Güncellemesi
+
+- Oyuncu para yazdıkça ilgili şık kutusunda para destesi oluşur.
+- Cevap açıklandığında yayın/moderatör ekranında doğru şıktaki para kalır, yanlış şıklardaki para düşme/yok olma animasyonu gösterir.
+- Sesli sorular için yayın ekranında audio player görünür. Tarayıcı otomatik ses çalmayı engelleyebileceği için yayıncı/operatörün player üzerinden sesi başlatması gerekebilir.
