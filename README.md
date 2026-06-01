@@ -148,3 +148,10 @@ Aynı GitHub Pages linkinde güncelleme için dosyaları aynı repository’ye t
   “Güneş Sistemi’nin en sıcak gezegeni hangisidir?”
   A) Merkür, B) Venüs, C) Mars, D) Jüpiter
   Doğru cevap: B) Venüs
+
+
+## v19 Güncellemesi
+
+- 5. soru yeniden kesin olarak Venüs sorusuna çevrildi.
+- Eski soru görünmesin diye HTML dosyalarında `game.js?v=19` ve `style.css?v=19` cache kırıcı eklendi.
+- Soru görselleri biraz büyütüldü ama 4 oyunculu ekranda alt alana yer kalacak şekilde sınırlandı.

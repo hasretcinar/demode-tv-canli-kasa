@@ -1539,3 +1539,48 @@ body:not(.display-page):not(.player-page) .media video{
     padding-right:0 !important;
   }
 }
+
+
+/* v19 cache kırıcı + görsel boyutu ayarı */
+.player-page .compact-media img,
+.player-page .compact-media video{
+  max-height:245px !important;
+  min-height:150px !important;
+  max-width:min(720px,88vw) !important;
+  width:auto !important;
+}
+
+.display-page .media img,
+.display-page .media video{
+  max-height:185px !important;
+  min-height:115px !important;
+  max-width:min(620px,48vw) !important;
+}
+
+body:not(.display-page):not(.player-page) .media img,
+body:not(.display-page):not(.player-page) .media video{
+  max-height:250px !important;
+  min-height:145px !important;
+  max-width:min(700px,58vw) !important;
+}
+
+@media(max-height:820px) and (min-width:900px){
+  .player-page .compact-media img,
+  .player-page .compact-media video{
+    max-height:205px !important;
+    min-height:130px !important;
+  }
+}
+
+@media(max-height:740px) and (min-width:900px){
+  .player-page .compact-media img,
+  .player-page .compact-media video{
+    max-height:160px !important;
+    min-height:105px !important;
+  }
+}
+
+/* 5. soru için görsel olmadığı durumda soru kartı boşluk bırakmasın */
+.player-page .player-question-card:not(:has(.compact-media)) h2{
+  margin-top:4px !important;
+}
