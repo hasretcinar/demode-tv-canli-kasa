@@ -111,3 +111,11 @@ Aynı GitHub Pages linkinde güncelleme için dosyaları aynı repository’ye t
 - Oyuncu ekranı tam ekran kullanım için daha kompakt hale getirildi.
 - Para kutuları, şık kartları ve görsel/ses medya alanları küçültüldü.
 - Yayın ekranında görsel soru medya alanı ekranı şişirmeyecek şekilde sınırlandı.
+
+
+## v13 Güncellemesi
+
+- Oyuncu ekranının maksimum genişliği artırıldı; artık koyu mavi arka plandaki boş alan daha iyi kullanılır.
+- Oyuncu ekranında şıklar geniş ekranda 4 sütun halinde yayılır.
+- Görselli sorulardaki görsel oyuncu ekranında daha büyük görünür.
+- Alt oyun butonları tam ekranda taşmaması için kompaktlaştırıldı.

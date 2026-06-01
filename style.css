@@ -1251,3 +1251,173 @@ body:not(.display-page):not(.player-page) .media video{
     overflow:visible !important;
   }
 }
+
+
+/* v13 oyuncu ekranı geniş yerleşim */
+.player-page .app.single{
+  width:calc(100vw - 20px) !important;
+  max-width:1500px !important;
+  height:calc(100vh - 20px) !important;
+}
+
+.player-page .main-panel{
+  width:100% !important;
+}
+
+.player-page .player-content{
+  width:100% !important;
+  grid-template-rows:auto minmax(0,1fr) auto auto !important;
+}
+
+.player-page .player-question-card{
+  width:100% !important;
+}
+
+.player-page .player-options{
+  grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+  gap:10px !important;
+}
+
+.player-page .bet-option{
+  min-height:178px !important;
+  align-content:space-between !important;
+  padding:11px !important;
+}
+
+.player-page .bet-option-main{
+  min-height:40px;
+}
+
+.player-page .bet-option-main strong{
+  font-size:16px !important;
+  line-height:1.2 !important;
+}
+
+.player-page .player-money-visual{
+  min-height:74px !important;
+  padding:7px 8px !important;
+}
+
+.player-page .money-stack{
+  height:62px !important;
+}
+
+.player-page .money-stack span{
+  width:38px !important;
+  height:22px !important;
+}
+
+.player-page .stack-label{
+  font-size:12px !important;
+}
+
+.player-page .bet-input-row input{
+  padding:8px !important;
+}
+
+.player-page .mini-all{
+  padding:8px 10px !important;
+}
+
+/* Oyuncu ekranında görsel soru fotoğrafı daha büyük */
+.player-page .compact-media{
+  display:flex !important;
+  justify-content:center !important;
+  align-items:center !important;
+  width:100% !important;
+  margin-bottom:8px !important;
+}
+
+.player-page .compact-media img,
+.player-page .compact-media video{
+  max-height:180px !important;
+  width:auto !important;
+  max-width:100% !important;
+  object-fit:contain !important;
+  padding:6px !important;
+  margin:0 auto 8px !important;
+}
+
+.player-page .compact-media audio{
+  width:100% !important;
+}
+
+/* Alt oyun barı taşmasın diye kompakt ve tek satır */
+.player-page .compact-betbar{
+  min-height:58px !important;
+  padding:8px 12px !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:space-between !important;
+}
+
+.player-page .compact-actions{
+  flex-wrap:nowrap !important;
+}
+
+.player-page .compact-actions .btn{
+  padding:9px 14px !important;
+  white-space:nowrap !important;
+}
+
+/* Kısa ekranlarda bile 4 sütun korunur ama boyutlar küçülür */
+@media(max-height:820px) and (min-width:900px){
+  .player-page .bet-option{
+    min-height:148px !important;
+    padding:9px !important;
+  }
+  .player-page .player-money-visual{
+    min-height:58px !important;
+  }
+  .player-page .money-stack{
+    height:48px !important;
+  }
+  .player-page .compact-media img,
+  .player-page .compact-media video{
+    max-height:140px !important;
+  }
+}
+
+@media(max-height:740px) and (min-width:900px){
+  .player-page .player-question-card h2{
+    font-size:20px !important;
+  }
+  .player-page .bet-option{
+    min-height:126px !important;
+    padding:8px !important;
+  }
+  .player-page .player-money-visual{
+    min-height:44px !important;
+  }
+  .player-page .money-stack{
+    height:34px !important;
+  }
+  .player-page .money-stack span{
+    width:32px !important;
+    height:18px !important;
+  }
+  .player-page .compact-media img,
+  .player-page .compact-media video{
+    max-height:105px !important;
+  }
+  .player-page .compact-betbar{
+    min-height:48px !important;
+    padding:6px 10px !important;
+  }
+  .player-page .compact-actions .btn{
+    padding:7px 10px !important;
+    font-size:13px !important;
+  }
+}
+
+@media(max-width:980px){
+  .player-page .player-options{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  }
+}
+
+@media(max-width:720px){
+  .player-page .player-options{
+    grid-template-columns:1fr !important;
+  }
+}
