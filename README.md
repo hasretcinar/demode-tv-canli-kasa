@@ -78,3 +78,11 @@ Aynı GitHub Pages linkinde güncelleme için dosyaları aynı repository’ye t
 - Yarışmacı portreleri artık ayrı dosya yolundan değil, doğrudan `display.html` içine gömülü (base64 data URI) olarak gelir.
 - Böylece GitHub’a `assets/contestants` klasörü eksik yüklense bile fotoğraflar görünür.
 - Güncellemeden sonra tarayıcı eski sürümü tutarsa `Ctrl+F5` ile sert yenileme önerilir.
+
+
+## v9 Güncellemesi
+
+- Oyuncu giriş ekranına fotoğraf seçme alanı eklendi.
+- Oyuncu seçtiği fotoğrafla odaya katılır.
+- Canlı sıralama panelinde ismin yanında seçilen fotoğraf görünür.
+- Sol alttaki sabit portre paneli kaldırıldı; artık fotoğraflar oyuncu seçimine bağlıdır.

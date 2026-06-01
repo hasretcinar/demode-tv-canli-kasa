@@ -33,6 +33,29 @@
           <input id="nameInput" placeholder="Adını yaz">
         </div>
       </div>
+
+      <div class="card avatar-select-card">
+        <label>Fotoğrafını seç</label>
+        <div class="avatar-picker" id="avatarPicker">
+          <button type="button" class="avatar-choice selected" data-avatar="mehmet" onclick="selectAvatar('mehmet')">
+            <img src="assets/contestants/mehmet_atar.png" alt="Mehmet Atar">
+            <span>Mehmet</span>
+          </button>
+          <button type="button" class="avatar-choice" data-avatar="berke" onclick="selectAvatar('berke')">
+            <img src="assets/contestants/berke_yoldas.png" alt="Berke Yoldaş">
+            <span>Berke</span>
+          </button>
+          <button type="button" class="avatar-choice" data-avatar="yalcin" onclick="selectAvatar('yalcin')">
+            <img src="assets/contestants/yalcin_rohde.png" alt="Yalçın Rohde">
+            <span>Yalçın</span>
+          </button>
+          <button type="button" class="avatar-choice" data-avatar="ronvisli" onclick="selectAvatar('ronvisli')">
+            <img src="assets/contestants/ronvisli.png" alt="Ronvisli">
+            <span>Ronvisli</span>
+          </button>
+        </div>
+      </div>
+
       <button class="btn primary" onclick="doJoin()">Odaya Katıl</button>
     </section>
 
@@ -81,6 +104,7 @@ let roomCode = qs("room") || "";
 let playerId = null;
 let state = null;
 let activeRef = null;
+let selectedAvatar = "mehmet";
 
 byId("roomInput").value = roomCode;
 
@@ -162,11 +186,19 @@ function renderPlayerQuestion(){
   updateBetTotal();
 }
 
+
+function selectAvatar(id){
+  selectedAvatar = id;
+  document.querySelectorAll(".avatar-choice").forEach(btn=>{
+    btn.classList.toggle("selected", btn.dataset.avatar === id);
+  });
+}
+
 async function doJoin(){
   try{
     roomCode = byId("roomInput").value.trim().toUpperCase();
     const name = byId("nameInput").value.trim();
-    playerId = await joinPlayer(roomCode, name);
+    playerId = await joinPlayer(roomCode, name, selectedAvatar);
     byId("joinArea").classList.add("hidden");
     byId("playArea").classList.remove("hidden");
     listenRoom();

@@ -2,6 +2,18 @@ const START_CASH = 1000000;
 const DEFAULT_DURATION = 45;
 const letters = ["A", "B", "C", "D"];
 
+const avatarOptions = [
+  { id:"mehmet", name:"Mehmet Atar", src:"assets/contestants/mehmet_atar.png" },
+  { id:"berke", name:"Berke Yoldaş", src:"assets/contestants/berke_yoldas.png" },
+  { id:"yalcin", name:"Yalçın Rohde", src:"assets/contestants/yalcin_rohde.png" },
+  { id:"ronvisli", name:"Ronvisli", src:"assets/contestants/ronvisli.png" }
+];
+
+function avatarById(id){
+  return avatarOptions.find(a => a.id === id) || null;
+}
+
+
 const questions = [
   { category:"Isınma / Futbol", question:"Beşiktaş'ın klasik renkleri hangileridir?", options:["Sarı-kırmızı","Siyah-beyaz","Lacivert-beyaz","Yeşil-beyaz"], correct:1, type:"normal" },
   { category:"Dünya Kupası", question:"2026 Dünya Kupası'na ev sahipliği yapacak ülkeler hangi seçenekte doğru verilmiştir?", options:["Brezilya-Arjantin-Şili","Almanya-Fransa-İtalya","ABD-Kanada-Meksika","İspanya-Portekiz-Fas"], correct:2, type:"normal" },
@@ -172,18 +184,25 @@ function renderPlayers(state, containerId="playersBox"){
   const box = byId(containerId);
   if(!box) return;
   const arr = ranking(state);
-  box.innerHTML = arr.map((p,i)=>`
-    <div class="player-row ${i===0 ? "leader" : ""} ${p.locked ? "locked" : ""}">
-      <div class="rank">${medalFor(i) || (i+1)}</div>
-      <div>
-        <strong>${escapeHtml(p.name || "Oyuncu")}</strong>
-        <div class="small">${p.eliminated ? "Elendi" : (p.locked ? "Kilitledi" : "Bekleniyor")} • ${p.correctCount || 0} doğru • ${money(p.burned || 0)} yandı</div>
-      </div>
-      <div class="money">${money(p.cash || 0)}</div>
-    </div>
-  `).join("") || `<p class="muted">Oyuncu bekleniyor...</p>`;
-}
+  box.innerHTML = arr.map((p,i)=>{
+    const av = avatarById(p.avatar || "");
+    const avatarHtml = av
+      ? `<img class="score-avatar-img" src="${av.src}" alt="${escapeHtml(p.name || av.name)}">`
+      : `<span class="score-avatar-fallback">${String(p.name || "?").slice(0,1).toUpperCase()}</span>`;
 
+    return `
+      <div class="player-row ${i===0 ? "leader" : ""} ${p.locked ? "locked" : ""}">
+        <div class="rank">${medalFor(i) || (i+1)}</div>
+        <div class="score-avatar">${avatarHtml}</div>
+        <div>
+          <strong>${escapeHtml(p.name || "Oyuncu")}</strong>
+          <div class="small">${p.eliminated ? "Elendi" : (p.locked ? "Kilitledi" : "Bekleniyor")} • ${p.correctCount || 0} doğru • ${money(p.burned || 0)} yandı</div>
+        </div>
+        <div class="money">${money(p.cash || 0)}</div>
+      </div>
+    `;
+  }).join("") || `<p class="muted">Oyuncu bekleniyor...</p>`;
+}
 
 function renderFinalBoard(state, containerId="questionArea"){
   const area = byId(containerId);
@@ -317,9 +336,10 @@ async function createRoom(duration=DEFAULT_DURATION){
   return code;
 }
 
-async function joinPlayer(code, name){
+async function joinPlayer(code, name, avatar=''){
   const cleanCode = String(code || "").toUpperCase().trim();
   const cleanName = String(name || "").trim().slice(0,24);
+  const cleanAvatar = avatarOptions.some(a => a.id === avatar) ? avatar : "";
   if(!cleanCode || !cleanName) throw new Error("Oda kodu ve isim gerekli.");
   const ref = roomRef(cleanCode);
   const snap = await ref.get();
@@ -330,6 +350,7 @@ async function joinPlayer(code, name){
 
   await playerPath.update({
     name: cleanName,
+    avatar: cleanAvatar,
     cash: START_CASH,
     burned: 0,
     correctCount: 0,
