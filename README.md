@@ -155,3 +155,23 @@ Aynı GitHub Pages linkinde güncelleme için dosyaları aynı repository’ye t
 - 5. soru yeniden kesin olarak Venüs sorusuna çevrildi.
 - Eski soru görünmesin diye HTML dosyalarında `game.js?v=19` ve `style.css?v=19` cache kırıcı eklendi.
 - Soru görselleri biraz büyütüldü ama 4 oyunculu ekranda alt alana yer kalacak şekilde sınırlandı.
+
+
+## v20 Güncellemesi
+
+- 5. soruya kullanıcı tarafından verilen Güneş Sistemi görseli eklendi.
+- Yayın ekranındaki soru görselleri ortalandı.
+- Yayın ekranındaki soru görselleri biraz büyütüldü.
+- Görsel boyutu, 4 oyunculu yayın akışında alt alanı bozmayacak şekilde sınırlandı.
+- Cache kırıcı sürümü `v=20` olarak güncellendi.
+
+
+## v21 Güncellemesi
+
+- Yayın ekranındaki soru görselleri daha büyük, tam ortalı ve daha belirgin hale getirildi.
+- Moderatör ekranı tam ekranda sayfa kaydırmaya ihtiyaç duymayacak şekilde kompaktlaştırıldı.
+- Süre son 5 saniyede kırmızı yanıp söner.
+- Süre 0 olduğunda oyuncular artık para kilitleyemez.
+- Oyuncu ekranında süre bittiği anda inputlar ve Gizli Kilitle pasif hale gelir.
+- 5. sorudaki Güneş Sistemi görseli korunur.
+- Cache kırıcı sürüm v=21 yapıldı.
