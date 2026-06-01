@@ -64,3 +64,10 @@ Aynı GitHub Pages linkinde güncelleme için dosyaları aynı repository’ye t
 - Cevap sonrası “Doğru Cevap” başlığı ve kalan/yanan özet satırları tamamen kaldırıldı.
 - Oyuncu Para Dağılımları tablosunda “Sonuç” sütunu yoktur.
 - Yayın ekranı için özel compact CSS eklendi; tam ekranda 4 oyunculu tabloda kaydırma ihtiyacını azaltacak şekilde küçültüldü.
+
+
+## v7 Güncellemesi
+
+- Yayın ekranının sol alt boşluğuna 4 yarışmacının küçük portre kartları eklendi.
+- Görseller yüklenen kaynaklardan kırpılarak hazırlandı.
+- Portreler dekoratif amaçlıdır ve yayın görüntüsünü zenginleştirir.

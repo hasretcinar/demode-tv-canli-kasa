@@ -636,3 +636,106 @@ table{width:100%;border-collapse:collapse}th,td{padding:12px 10px;text-align:lef
     display:none !important;
   }
 }
+
+
+/* v7 yarışmacı portreleri */
+.display-page .main-panel{
+  position:relative !important;
+}
+
+.contestant-showcase{
+  position:absolute;
+  left:18px;
+  bottom:16px;
+  display:flex;
+  gap:10px;
+  z-index:2;
+  pointer-events:none;
+  opacity:.92;
+}
+
+.contestant-chip{
+  width:96px;
+  padding:8px 8px 6px;
+  border-radius:18px;
+  background:linear-gradient(180deg,rgba(255,255,255,.12),rgba(0,0,0,.18));
+  border:1px solid rgba(255,255,255,.16);
+  box-shadow:0 10px 24px rgba(0,0,0,.22);
+  text-align:center;
+  backdrop-filter:blur(6px);
+}
+
+.contestant-thumb{
+  width:76px;
+  height:76px;
+  margin:0 auto 6px;
+  border-radius:50%;
+  overflow:hidden;
+  box-shadow:0 8px 18px rgba(0,0,0,.25);
+  background:rgba(255,255,255,.08);
+}
+
+.contestant-thumb img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+.contestant-name{
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:.4px;
+  line-height:1.15;
+  color:#f5f7ff;
+}
+
+.display-page .content{
+  padding-bottom:118px !important;
+}
+
+@media(max-height:820px){
+  .contestant-showcase{
+    left:14px;
+    bottom:12px;
+    gap:8px;
+  }
+  .contestant-chip{
+    width:82px;
+    padding:6px 6px 5px;
+    border-radius:15px;
+  }
+  .contestant-thumb{
+    width:62px;
+    height:62px;
+    margin-bottom:5px;
+  }
+  .contestant-name{
+    font-size:9px;
+  }
+  .display-page .content{
+    padding-bottom:100px !important;
+  }
+}
+
+@media(max-height:720px){
+  .contestant-chip{
+    width:74px;
+  }
+  .contestant-thumb{
+    width:54px;
+    height:54px;
+  }
+  .contestant-name{
+    font-size:8px;
+  }
+  .display-page .content{
+    padding-bottom:90px !important;
+  }
+}
+
+@media(max-width:1120px){
+  .contestant-showcase{
+    opacity:.8;
+  }
+}
