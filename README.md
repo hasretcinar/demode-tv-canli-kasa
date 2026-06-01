@@ -119,3 +119,12 @@ Aynı GitHub Pages linkinde güncelleme için dosyaları aynı repository’ye t
 - Oyuncu ekranında şıklar geniş ekranda 4 sütun halinde yayılır.
 - Görselli sorulardaki görsel oyuncu ekranında daha büyük görünür.
 - Alt oyun butonları tam ekranda taşmaması için kompaktlaştırıldı.
+
+
+## v14 Güncellemesi
+
+- 10 soruluk gerçek Demode TV Canlı Kasa soru seti eklendi.
+- Kullanıcının gönderdiği/geliştirilen görseller ilgili sorulara gömüldü.
+- 9. ve 10. sorular 3 şıklı yapıldı.
+- Şık gösterimleri, mümkün olduğunca mevcut sorudaki seçenek sayısına göre dinamikleştirildi.
+- 5. soru şimdilik görselsiz bırakıldı.

@@ -1421,3 +1421,42 @@ body:not(.display-page):not(.player-page) .media video{
     grid-template-columns:1fr !important;
   }
 }
+
+
+/* v14 gerçek soru seti + görselli sorular */
+.media img,
+.media video{
+  border-radius:16px !important;
+  object-fit:contain !important;
+  background:rgba(0,0,0,.28) !important;
+}
+
+.display-page .media img,
+.display-page .media video{
+  max-height:150px !important;
+}
+
+.player-page .compact-media img,
+.player-page .compact-media video{
+  max-height:190px !important;
+}
+
+/* 3 seçenekli sorularda boş D alanı oluşmasın */
+.option-grid:has(.option-card:nth-child(3):last-child),
+.player-options:has(.bet-option:nth-child(3):last-child){
+  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+}
+
+@media(max-width:980px){
+  .option-grid:has(.option-card:nth-child(3):last-child),
+  .player-options:has(.bet-option:nth-child(3):last-child){
+    grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  }
+}
+
+@media(max-width:720px){
+  .option-grid:has(.option-card:nth-child(3):last-child),
+  .player-options:has(.bet-option:nth-child(3):last-child){
+    grid-template-columns:1fr !important;
+  }
+}
