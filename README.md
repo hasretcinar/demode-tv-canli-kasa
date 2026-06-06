@@ -211,3 +211,19 @@ Aynı GitHub Pages linkinde güncelleme için dosyaları aynı repository’ye t
   - Oyuncunun kilidini/dağıtımını temizleme
 - Ses/geçiş denemeleri yoktur.
 - Cache kırıcı sürüm `v=25y1` olarak ayarlanmıştır.
+
+
+## v25y2 Güvenli Güncelleme
+
+- Çalışan v25 yönetim sürümü baz alınmıştır.
+- Para kuralı eklendi:
+  - 0 TL serbesttir.
+  - 0 dışındaki her değer en az 10.000 TL olmalıdır.
+  - Tüm değerler 10.000 TL katı olmalıdır.
+  - Kurala uymayan dağıtım kilitlenemez.
+- Oyuncu ekranında hatalı para kutuları kırmızı görünür.
+- Oyuncu kilitledikten sonra oyuncu ekranında net “Dağıtımın kilitlendi” bildirimi görünür.
+- Elenen oyuncuya sağ panelde ELENDİ damgası gelir.
+- Cevap açıklanınca lider kartı kısa süre parlar.
+- Moderatör paneline “Tüm Oyuncuları Sil” ve “Elenenleri Sil” eklendi.
+- Cache kırıcı sürüm `v=25y2` olarak ayarlanmıştır.

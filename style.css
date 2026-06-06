@@ -3099,3 +3099,101 @@ body:not(.display-page):not(.player-page) .media video{
     grid-template-columns:1fr;
   }
 }
+
+
+/* v25y2 - elendi damgası, lider efekti, kilit ekranı, para kuralı */
+
+.player-row.eliminated-row{
+  opacity:.62;
+  filter:grayscale(.55);
+  position:relative;
+  border-color:rgba(255,80,90,.35) !important;
+}
+
+.player-row.eliminated-row::after{
+  content:"ELENDİ";
+  position:absolute;
+  right:12px;
+  top:6px;
+  padding:3px 8px;
+  border-radius:999px;
+  background:rgba(255,60,74,.92);
+  color:#fff;
+  font-size:10px;
+  font-weight:1000;
+  letter-spacing:.5px;
+  transform:rotate(-3deg);
+  box-shadow:0 6px 18px rgba(255,60,74,.28);
+}
+
+.player-row.leader-flash{
+  animation:leaderGoldFlash 1.3s ease both;
+}
+
+@keyframes leaderGoldFlash{
+  0%{box-shadow:0 0 0 rgba(255,204,51,0); transform:scale(.99);}
+  35%{box-shadow:0 0 34px rgba(255,204,51,.50); transform:scale(1.015);}
+  100%{box-shadow:0 0 0 rgba(255,204,51,0); transform:scale(1);}
+}
+
+.locked-notice{
+  margin:8px 0 10px;
+  padding:12px 14px;
+  border-radius:16px;
+  text-align:center;
+  font-weight:1000;
+  letter-spacing:.2px;
+  color:#fff6bd;
+  background:linear-gradient(135deg,rgba(255,204,51,.20),rgba(99,212,230,.13));
+  border:1px solid rgba(255,204,51,.30);
+  box-shadow:0 10px 24px rgba(0,0,0,.22);
+  animation:lockedNoticePulse 1.25s ease-in-out infinite alternate;
+}
+
+@keyframes lockedNoticePulse{
+  from{filter:brightness(1); transform:translateY(0);}
+  to{filter:brightness(1.15); transform:translateY(-1px);}
+}
+
+.bet-option:has(input:disabled){
+  opacity:.72;
+}
+
+.invalid-money{
+  border-color:rgba(255,76,91,.95) !important;
+  box-shadow:0 0 0 2px rgba(255,76,91,.20) !important;
+  background:rgba(255,76,91,.08) !important;
+}
+
+.manage-bulk-actions{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:6px;
+  margin:-2px 0 7px;
+}
+
+.manage-player-row:has(.manage-cash:invalid){
+  border-color:rgba(255,76,91,.40);
+}
+
+.player-page .bet-input-row input{
+  font-weight:800;
+}
+
+.player-page .bet-input-row input::placeholder{
+  color:rgba(255,255,255,.35);
+  font-size:11px;
+}
+
+@media(max-height:780px){
+  .manage-bulk-actions{
+    margin:-3px 0 5px;
+  }
+
+  .locked-notice{
+    padding:8px 10px;
+    margin:6px 0 8px;
+    font-size:13px;
+  }
+}
