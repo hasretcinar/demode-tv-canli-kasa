@@ -2945,3 +2945,20 @@ body:not(.display-page):not(.player-page) .media video{
     flex-basis:44px;
   }
 }
+
+
+/* v25.1 güvenli güncelleme: süre 10 saniye kala uyarı */
+.center-timer.timer-warning::before{
+  content:"SON 10";
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  margin-right:2px;
+  padding:3px 7px;
+  border-radius:999px;
+  background:rgba(255,255,255,.18);
+  color:#fff;
+  font-size:10px;
+  font-weight:1000;
+  letter-spacing:.4px;
+}

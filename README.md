@@ -197,3 +197,12 @@ Aynı GitHub Pages linkinde güncelleme için dosyaları aynı repository’ye t
 - Final sıralaması ekranda kompakt şekilde kalır.
 - Moderatör paneline “Final Ekranını Göster” butonu eklendi.
 - Cache kırıcı sürüm v=23 yapıldı.
+
+
+## v25.1 Timer10 Güvenli Güncelleme
+
+- V25 çalışan sürüm baz alındı.
+- Sadece süre uyarısı değiştirildi.
+- Kalan süre 10 saniyeye düşünce renk/yanıp sönme uyarısı başlar.
+- Ses/geçiş denemesi eklenmedi; Netlify stabil kalması hedeflendi.
+- Cache kırıcı v=251 yapıldı.
