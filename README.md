@@ -197,3 +197,44 @@ Aynı GitHub Pages linkinde güncelleme için dosyaları aynı repository’ye t
 - Final sıralaması ekranda kompakt şekilde kalır.
 - Moderatör paneline “Final Ekranını Göster” butonu eklendi.
 - Cache kırıcı sürüm v=23 yapıldı.
+
+
+## v25y1 Güvenli Güncelleme
+
+- Çalışan v25 sürümü baz alınmıştır.
+- Süre uyarısı 5 saniye yerine 10 saniye kala başlar.
+- Moderatör paneline oyuncu yönetimi eklenmiştir:
+  - Oyuncu silme
+  - Oyuncu ismini düzeltme
+  - Oyuncu parasını düzeltme
+  - Oyuncu fotoğrafını değiştirme
+  - Oyuncunun kilidini/dağıtımını temizleme
+- Ses/geçiş denemeleri yoktur.
+- Cache kırıcı sürüm `v=25y1` olarak ayarlanmıştır.
+
+
+## v25y2 Güvenli Güncelleme
+
+- Çalışan v25 yönetim sürümü baz alınmıştır.
+- Para kuralı eklendi:
+  - 0 TL serbesttir.
+  - 0 dışındaki her değer en az 10.000 TL olmalıdır.
+  - Tüm değerler 10.000 TL katı olmalıdır.
+  - Kurala uymayan dağıtım kilitlenemez.
+- Oyuncu ekranında hatalı para kutuları kırmızı görünür.
+- Oyuncu kilitledikten sonra oyuncu ekranında net “Dağıtımın kilitlendi” bildirimi görünür.
+- Elenen oyuncuya sağ panelde ELENDİ damgası gelir.
+- Cevap açıklanınca lider kartı kısa süre parlar.
+- Moderatör paneline “Tüm Oyuncuları Sil” ve “Elenenleri Sil” eklendi.
+- Cache kırıcı sürüm `v=25y2` olarak ayarlanmıştır.
+
+
+## v25y4 Yayın Düzeltmesi
+
+- Çalışan v25y2 sürümü baz alınmıştır.
+- Sorular kullanıcının son istediği sıraya göre dizilmiştir.
+- Yayın ekranında oda kodu gizlenmiştir.
+- Cevap açıklanınca soru, görsel, doğru cevap ve şıklar kapanmadan üstte görünür.
+- 4 oyunculuk para dağıtım tablosu ekranın altında sabit ve kompakt şekilde yer alır.
+- Para dağıtım tablosunun başlıklarında artık A/B/C/D yerine ilgili şık metinleri de gösterilir.
+- Cache kırıcı sürüm `v=25y4` olarak ayarlanmıştır.
